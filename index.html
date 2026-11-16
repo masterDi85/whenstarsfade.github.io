@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="When Stars Fade — Electronic Press Kit">
+  <meta name="theme-color" content="#080808">
+  <title>WHEN STARS FADE — EPK</title>
+  <style>
+    :root { color-scheme: dark; --bg:#080808; --panel:#111; --muted:#a5a5a5; --line:#292929; --white:#f2f2f2; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:var(--bg); color:var(--white); font-family:Arial, Helvetica, sans-serif; line-height:1.6; }
+    a { color:inherit; }
+    .wrap { width:min(1080px, calc(100% - 44px)); margin:auto; }
+    header { min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:60px 0 42px; }
+    .hero-logo { width:min(440px, 78vw); max-height:360px; object-fit:contain; margin:0 auto 22px; }
+    .eyebrow { color:#aaa; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; }
+    .hero-title { font-size:clamp(2rem, 5vw, 3.7rem); letter-spacing:.16em; line-height:1.08; margin:0; font-weight:600; }
+    .hero-sub { color:#aaa; letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; margin:18px 0 0; }
+    nav { display:flex; justify-content:center; flex-wrap:wrap; gap:24px; padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
+    nav a { text-decoration:none; color:#bdbdbd; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; }
+    nav a:hover, .link:hover { color:white; }
+    section { padding:82px 0; border-bottom:1px solid var(--line); }
+    .kicker { color:#888; letter-spacing:.28em; text-transform:uppercase; font-size:.68rem; margin:0 0 12px; }
+    h2 { font-size:clamp(1.7rem, 4vw, 2.6rem); font-weight:500; letter-spacing:.08em; text-transform:uppercase; margin:0 0 28px; }
+    .about-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:42px; align-items:center; }
+    .about-copy { color:#c8c8c8; font-size:1.03rem; max-width:650px; }
+    .about-copy p { margin:0 0 16px; }
+    .photo { display:block; width:100%; height:auto; border:1px solid #333; }
+    .photo-frame { position:relative; }
+    .photo-frame:after { content:""; position:absolute; inset:12px -12px -12px 12px; border:1px solid #444; z-index:-1; }
+    .placeholder { color:#888; font-style:italic; }
+    .music-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
+    .music-card { border:1px solid var(--line); background:var(--panel); padding:22px; min-height:125px; display:flex; flex-direction:column; justify-content:space-between; }
+    .music-card strong { letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
+    .music-card span { color:#888; font-size:.78rem; }
+    .downloads { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+    .download { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border:1px solid var(--line); text-decoration:none; background:#101010; }
+    .download:hover { border-color:#888; background:#151515; }
+    .download small { display:block; color:#888; margin-top:3px; }
+    .arrow { font-size:1.2rem; color:#aaa; }
+    .contact { display:flex; flex-wrap:wrap; gap:12px; }
+    .pill { border:1px solid #444; padding:12px 18px; text-decoration:none; color:#ddd; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
+    footer { padding:30px 0 45px; text-align:center; color:#666; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; }
+    @media (max-width:720px) {
+      header { min-height:78vh; }
+      .about-grid { grid-template-columns:1fr; gap:34px; }
+      .music-grid { grid-template-columns:1fr; }
+      .downloads { grid-template-columns:1fr; }
+      section { padding:62px 0; }
+      nav { gap:14px 18px; }
+      .photo-frame { margin-right:12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <img class="hero-logo" src="assets/when-stars-fade-logo.png" alt="When Stars Fade logo">
+    <p class="eyebrow">Electronic Press Kit</p>
+    <h1 class="hero-title">WHEN STARS FADE</h1>
+    <p class="hero-sub">Official band presentation</p>
+  </header>
+
+  <nav class="wrap" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#music">Music</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <main>
+    <section id="about">
+      <div class="wrap about-grid">
+        <div>
+          <p class="kicker">01 / The band</p>
+          <h2>About When Stars Fade</h2>
+          <div class="about-copy">
+            <p><strong>When Stars Fade</strong> is a band built around dark atmospheres, emotional intensity and a powerful live sound.</p>
+            <p>Blending heavy guitars with evocative melodies and a dramatic sense of mood, the band creates music that moves between weight and vulnerability — where intensity meets atmosphere.</p>
+            <p class="placeholder">[Add the band's home city, formation year, exact genre and a short note about its musical identity here.]</p>
+          </div>
+        </div>
+        <div class="photo-frame">
+          <img class="photo" src="assets/band-photo.jpg" alt="When Stars Fade band portrait">
+        </div>
+      </div>
+    </section>
+
+    <section id="music">
+      <div class="wrap">
+        <p class="kicker">02 / Listen & watch</p>
+        <h2>Music & Video</h2>
+        <div class="music-grid">
+          <a class="music-card link" href="#" target="_blank" rel="noopener">
+            <strong>Listen to our music</strong><span>Spotify · replace this link</span>
+          </a>
+          <a class="music-card link" href="#" target="_blank" rel="noopener">
+            <strong>Watch our videos</strong><span>YouTube · replace this link</span>
+          </a>
+          <a class="music-card link" href="#" target="_blank" rel="noopener">
+            <strong>More releases</strong><span>Bandcamp / other platform · replace this link</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="downloads">
+      <div class="wrap">
+        <p class="kicker">03 / Press resources</p>
+        <h2>Downloads</h2>
+        <div class="downloads">
+          <a class="download" href="assets/when-stars-fade-logo.png" download>
+            <span><strong>Band logo — PNG</strong><small>High-resolution image</small></span><span class="arrow">↓</span>
+          </a>
+          <a class="download" href="assets/band-photo.jpg" download>
+            <span><strong>Band photo — JPG</strong><small>Press photograph</small></span><span class="arrow">↓</span>
+          </a>
+        </div>
+        <p class="placeholder" style="font-size:.8rem;margin-top:16px">The supplied logo is provided as a PNG. Add an SVG or print-ready PDF version here if available.</p>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="wrap">
+        <p class="kicker">04 / Get in touch</p>
+        <h2>Contact & Booking</h2>
+        <div class="contact">
+          <a class="pill" href="mailto:your-email@example.com">Booking email — replace</a>
+          <a class="pill" href="#" target="_blank" rel="noopener">Instagram — replace</a>
+          <a class="pill" href="#" target="_blank" rel="noopener">Facebook — replace</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="wrap">WHEN STARS FADE · ELECTRONIC PRESS KIT</footer>
+</body>
+</html>
