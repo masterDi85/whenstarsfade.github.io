@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -5,568 +6,392 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="When Stars Fade — Electronic Press Kit">
   <meta name="theme-color" content="#080808">
+
   <title>WHEN STARS FADE — EPK</title>
-  <style>
-    :root { color-scheme: dark; --bg:#080808; --panel:#111; --muted:#a5a5a5; --line:#292929; --white:#f2f2f2; }
-    * { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
-    body { margin:0; background:var(--bg); color:var(--white); font-family:Arial, Helvetica, sans-serif; line-height:1.6; }
-    a { color:inherit; }
-    .wrap { width:min(1080px, calc(100% - 44px)); margin:auto; }
-    header { min-height:90vh; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:60px 0 42px; }
-    .hero-logo { width:min(440px, 78vw); max-height:360px; object-fit:contain; margin:0 auto 22px; }
-    .eyebrow { color:#aaa; font-size:.72rem; letter-spacing:.34em; text-transform:uppercase; }
-    .hero-title { font-size:clamp(2rem, 5vw, 3.7rem); letter-spacing:.16em; line-height:1.08; margin:0; font-weight:600; }
-    .hero-sub { color:#aaa; letter-spacing:.2em; text-transform:uppercase; font-size:.75rem; margin:18px 0 0; }
-    nav { display:flex; justify-content:center; flex-wrap:wrap; gap:24px; padding:18px 0; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
-    nav a { text-decoration:none; color:#bdbdbd; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; }
-    nav a:hover, .link:hover { color:white; }
-    section { padding:82px 0; border-bottom:1px solid var(--line); }
-    .kicker { color:#888; letter-spacing:.28em; text-transform:uppercase; font-size:.68rem; margin:0 0 12px; }
-    h2 { font-size:clamp(1.7rem, 4vw, 2.6rem); font-weight:500; letter-spacing:.08em; text-transform:uppercase; margin:0 0 28px; }
-    .about-grid { display:grid; grid-template-columns:1.1fr .9fr; gap:42px; align-items:center; }
-    .about-copy { color:#c8c8c8; font-size:1.03rem; max-width:650px; }
-    .about-copy p { margin:0 0 16px; }
-    .photo { display:block; width:100%; height:auto; border:1px solid #333; }
-    .photo-frame { position:relative; }
-    .photo-frame:after { content:""; position:absolute; inset:12px -12px -12px 12px; border:1px solid #444; z-index:-1; }
-    .placeholder { color:#888; font-style:italic; }
-    .music-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }
-    .music-card { border:1px solid var(--line); background:var(--panel); padding:22px; min-height:125px; display:flex; flex-direction:column; justify-content:space-between; }
-    .music-card strong { letter-spacing:.1em; text-transform:uppercase; font-size:.85rem; }
-    .music-card span { color:#888; font-size:.78rem; }
-    .downloads { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
-    .download { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:20px 22px; border:1px solid var(--line); text-decoration:none; background:#101010; }
-    .download:hover { border-color:#888; background:#151515; }
-    .download small { display:block; color:#888; margin-top:3px; }
-    .arrow { font-size:1.2rem; color:#aaa; }
-    .contact { display:flex; flex-wrap:wrap; gap:12px; }
-    .pill { border:1px solid #444; padding:12px 18px; text-decoration:none; color:#ddd; font-size:.78rem; letter-spacing:.1em; text-transform:uppercase; }
-    footer { padding:30px 0 45px; text-align:center; color:#666; font-size:.68rem; letter-spacing:.18em; text-transform:uppercase; }
-    
-    
-/* PHOTO GALLERY */
-.gallery {
-  position: relative;
-  overflow: hidden;
-}
 
-.gallery-track {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scroll-behavior: smooth;
-  scrollbar-width: none;
-  padding: 4px 2px 18px;
-}
-
-.gallery-track::-webkit-scrollbar {
-  display: none;
-}
-
-.gallery-slide {
-  flex: 0 0 auto;
-  width: auto;
-  height: min(520px, 65vh);
-  max-width: 85vw;
-  scroll-snap-align: center;
-  overflow: hidden;
-  background: #111;
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.gallery-slide img {
-  display: block;
-  width: auto;
-  height: 100%;
-  max-width: 85vw;
-  object-fit: contain;
-  transition: transform .5s ease;
-}
-
-.gallery-slide:hover img {
-  transform: scale(1.02);
-}
-
-@media (max-width:720px) {
-  .gallery-slide {
-    height: min(440px, 65vh);
-    max-width: 88vw;
-  }
-
-  .gallery-slide img {
-    max-width: 88vw;
-  }
-}
-
-.gallery-controls {
-  display: flex;
-  justify-content: flex-end;
-  gap: 10px;
-  margin-top: 12px;
-}
-
-.gallery-btn {
-  width: 44px;
-  height: 44px;
-  border: 1px solid #444;
-  background: #111;
-  color: white;
-  font-size: 1.3rem;
-  cursor: pointer;
-}
-
-.gallery-btn:hover {
-  background: #292929;
-}
-
-.gallery-count {
-  color: #888;
-  font-size: .8rem;
-  margin-right: auto;
-  align-self: center;
-}
-
-/* MUSIC AND VIDEO */
-.media-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 16px;
-}
-
-.media-card {
-  border: 1px solid var(--line);
-  background: var(--panel);
-  padding: 24px;
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.media-card h3 {
-  margin: 0;
-  font-size: 1rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.media-card p {
-  margin: 0;
-  color: #888;
-  font-size: .85rem;
-}
-
-.media-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: auto;
-}
-
-.media-link {
-  display: inline-block;
-  padding: 10px 14px;
-  border: 1px solid #444;
-  text-decoration: none;
-  color: #ddd;
-  font-size: .72rem;
-  letter-spacing: .08em;
-  text-transform: uppercase;
-}
-
-.media-link:hover {
-  border-color: #aaa;
-  color: white;
-}
-
-.video-preview {
-  width: 100%;
-  display: block;
-  background: #000;
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-}
-
-@media (max-width:720px) {
-  .gallery-slide {
-    flex-basis: 88%;
-  }
-
-  .media-grid {
-    grid-template-columns: 1fr;
-  }
-}
-   
-    
-    @media (max-width:720px) {
-      header { min-height:78vh; }
-      .about-grid { grid-template-columns:1fr; gap:34px; }
-      .music-grid { grid-template-columns:1fr; }
-      .downloads { grid-template-columns:1fr; }
-      section { padding:62px 0; }
-      nav { gap:14px 18px; }
-      .photo-frame { margin-right:12px; }
-    }
-  </style>
-
-
-  /* LIGHTBOX */
-
-.gallery-slide img {
-  cursor: zoom-in;
-}
-
-.lightbox {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  background: rgba(0, 0, 0, .94);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 50px;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity .25s ease, visibility .25s ease;
-  cursor: zoom-out;
-}
-
-.lightbox.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.lightbox img {
-  display: block;
-  max-width: 95vw;
-  max-height: 90vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  cursor: default;
-  box-shadow: 0 10px 60px rgba(0,0,0,.5);
-}
-
-.lightbox-close {
-  position: absolute;
-  top: 20px;
-  right: 28px;
-  width: 46px;
-  height: 46px;
-  border: 1px solid #666;
-  background: rgba(20,20,20,.7);
-  color: white;
-  font-size: 30px;
-  line-height: 1;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.lightbox-close:hover {
-  background: #333;
-}
-
-@media (max-width:720px) {
-  .lightbox {
-    padding: 15px;
-  }
-
-  .lightbox img {
-    max-width: 96vw;
-    max-height: 85vh;
-  }
-
-  .lightbox-close {
-    top: 12px;
-    right: 12px;
-  }
-}
-
-
-
-  
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
 </head>
+
 <body>
-  <header class="wrap">
-    <img class="hero-logo" src="assets/when-stars-fade-logo.png" alt="When Stars Fade logo">
+
+  <header class="wrap hero">
+    <img
+      class="hero-logo"
+      src="assets/when-stars-fade-logo.png"
+      alt="When Stars Fade logo"
+    >
     <p class="eyebrow">Electronic Press Kit</p>
     <h1 class="hero-title">WHEN STARS FADE</h1>
     <p class="hero-sub">Official band presentation</p>
   </header>
 
-<nav class="wrap" aria-label="Main navigation">
-  <a href="#about">About</a>
-  <a href="#gallery">Gallery</a>
-  <a href="#music">Music</a>
-  <a href="#video">Video</a>
-  <a href="#downloads">Downloads</a>
-  <a href="#contact">Contact</a>
-</nav>
+  <nav class="wrap" aria-label="Main navigation">
+    <a href="#about">About</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#music">Music</a>
+    <a href="#video">Video</a>
+    <a href="#downloads">Downloads</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <main>
+
+    <!-- ABOUT -->
+
     <section id="about">
       <div class="wrap about-grid">
+
         <div>
           <p class="kicker">01 / The band</p>
           <h2>About When Stars Fade</h2>
+
           <div class="about-copy">
-            <p><strong>When Stars Fade</strong> is a modern progressive metal band from Bishkek, Kyrgyzstan, formed in 2024 by experienced musicians with over two decades of musical background.</p>
-            <p>Blending intricate progressive arrangements, powerful guitar-driven soundscapes, and atmospheric elements, the band creates a distinctive sonic identity that balances technical complexity with emotional depth and melodic intensity.</p>
-             <p>Drawing on years of musical experience, When Stars Fade combines modern metal aesthetics with a dynamic and expressive approach to songwriting. Their music explores contrasts between heaviness and atmosphere, aggression and melody, precision and raw emotion.</p>
-             <p>Although formed in 2024, the band brings together musicians whose individual journeys span more than 20 years, resulting in a mature musical vision and a strong foundation for further creative exploration.</p>
-             <p>With a commitment to evolving their sound and delivering an intense, immersive live experience, When Stars Fade aims to establish its presence on the international modern metal scene.</p>
-            <p class="placeholder"></p>
+            <p>
+              <strong>When Stars Fade</strong> is a modern progressive metal
+              band from Bishkek, Kyrgyzstan, formed in 2024 by experienced
+              musicians with over two decades of musical background.
+            </p>
+
+            <p>
+              Blending intricate progressive arrangements, powerful
+              guitar-driven soundscapes, and atmospheric elements, the band
+              creates a distinctive sonic identity that balances technical
+              complexity with emotional depth and melodic intensity.
+            </p>
+
+            <p>
+              Drawing on years of musical experience, When Stars Fade combines
+              modern metal aesthetics with a dynamic and expressive approach
+              to songwriting. Their music explores contrasts between heaviness
+              and atmosphere, aggression and melody, precision and raw emotion.
+            </p>
+
+            <p>
+              Although formed in 2024, the band brings together musicians
+              whose individual journeys span more than 20 years, resulting
+              in a mature musical vision and a strong foundation for further
+              creative exploration.
+            </p>
+
+            <p>
+              With a commitment to evolving their sound and delivering an
+              intense, immersive live experience, When Stars Fade aims to
+              establish its presence on the international modern metal scene.
+            </p>
           </div>
         </div>
+
         <div class="photo-frame">
-          <img class="photo" src="assets/band-photo.jpg" alt="When Stars Fade band portrait">
+          <img
+            class="photo"
+            src="assets/band-photo.jpg"
+            alt="When Stars Fade band portrait"
+          >
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- GALLERY -->
+
+    <section id="gallery">
+      <div class="wrap">
+
+        <p class="kicker">02 / Visual archive</p>
+        <h2>Gallery</h2>
+
+        <div class="gallery">
+
+          <div class="gallery-track" id="galleryTrack">
+            <p class="placeholder">Loading photos...</p>
+          </div>
+
+          <div class="gallery-controls">
+            <span class="gallery-count" id="galleryCount"></span>
+
+            <button
+              class="gallery-btn"
+              id="galleryPrev"
+              aria-label="Previous photo"
+              type="button"
+            >←</button>
+
+            <button
+              class="gallery-btn"
+              id="galleryNext"
+              aria-label="Next photo"
+              type="button"
+            >→</button>
+          </div>
+
         </div>
       </div>
     </section>
 
-    <section id="gallery">
-  <div class="wrap">
-    <p class="kicker">02 / Visual archive</p>
-    <h2>Gallery</h2>
 
-    <div class="gallery">
-      <div class="gallery-track" id="galleryTrack">
-        <p class="placeholder">Loading photos...</p>
-      </div>
+    <!-- MUSIC -->
 
-      <div class="gallery-controls">
-        <span class="gallery-count" id="galleryCount"></span>
-        <button class="gallery-btn" id="galleryPrev" aria-label="Previous photo">←</button>
-        <button class="gallery-btn" id="galleryNext" aria-label="Next photo">→</button>
-      </div>
-    </div>
-  </div>
-</section>
+    <section id="music">
+      <div class="wrap">
 
-<section id="music">
-  <div class="wrap">
-    <p class="kicker">03 / Listen</p>
-    <h2>Music</h2>
+        <p class="kicker">03 / Listen</p>
+        <h2>Music</h2>
 
-    <div class="media-grid">
+        <div class="media-grid">
 
-      <article class="media-card">
-        <h3>Track Title 01</h3>
-        <p>Single / Release description</p>
-        <div class="media-actions">
-          <a class="media-link" href="https://open.spotify.com/" target="_blank" rel="noopener">
-            Spotify ↗
-          </a>
-          <a class="media-link" href="assets/music/track-01.mp3" download>
-            Download MP3 ↓
-          </a>
+          <article class="media-card">
+            <h3>Track Title 01</h3>
+            <p>Single / Release description</p>
+
+            <div class="media-actions">
+              <a
+                class="media-link"
+                href="https://open.spotify.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                Spotify ↗
+              </a>
+
+              <a
+                class="media-link"
+                href="assets/music/track-01.mp3"
+                download
+              >
+                Download MP3 ↓
+              </a>
+            </div>
+          </article>
+
+          <article class="media-card">
+            <h3>Track Title 02</h3>
+            <p>Single / Release description</p>
+
+            <div class="media-actions">
+              <a
+                class="media-link"
+                href="https://open.spotify.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                Spotify ↗
+              </a>
+
+              <a
+                class="media-link"
+                href="assets/music/track-02.mp3"
+                download
+              >
+                Download MP3 ↓
+              </a>
+            </div>
+          </article>
+
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="media-card">
-        <h3>Track Title 02</h3>
-        <p>Single / Release description</p>
-        <div class="media-actions">
-          <a class="media-link" href="https://open.spotify.com/" target="_blank" rel="noopener">
-            Spotify ↗
-          </a>
-          <a class="media-link" href="assets/music/track-02.mp3" download>
-            Download MP3 ↓
-          </a>
-        </div>
-      </article>
 
-    </div>
-  </div>
-</section>
+    <!-- VIDEO -->
 
     <section id="video">
-  <div class="wrap">
-    <p class="kicker">04 / Watch</p>
-    <h2>Video</h2>
+      <div class="wrap">
 
-    <div class="media-grid">
+        <p class="kicker">04 / Watch</p>
+        <h2>Video</h2>
 
-      <article class="media-card">
-        <video class="video-preview" controls preload="metadata">
-          <source src="assets/video/live-session.mp4" type="video/mp4">
-        </video>
-        <h3>Live Session</h3>
-        <p>Live performance</p>
-        <div class="media-actions">
-          <a class="media-link" href="https://www.youtube.com/" target="_blank" rel="noopener">
-            YouTube ↗
-          </a>
-          <a class="media-link" href="assets/video/live-session.mp4" download>
-            Download Video ↓
-          </a>
+        <div class="media-grid">
+
+          <article class="media-card">
+
+            <video class="video-preview" controls preload="metadata">
+              <source
+                src="assets/video/live-session.mp4"
+                type="video/mp4"
+              >
+            </video>
+
+            <h3>Live Session</h3>
+            <p>Live performance</p>
+
+            <div class="media-actions">
+              <a
+                class="media-link"
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                YouTube ↗
+              </a>
+
+              <a
+                class="media-link"
+                href="assets/video/live-session.mp4"
+                download
+              >
+                Download Video ↓
+              </a>
+            </div>
+
+          </article>
+
+
+          <article class="media-card">
+
+            <video class="video-preview" controls preload="metadata">
+              <source
+                src="assets/video/official-video.mp4"
+                type="video/mp4"
+              >
+            </video>
+
+            <h3>Official Video</h3>
+            <p>Official music video</p>
+
+            <div class="media-actions">
+              <a
+                class="media-link"
+                href="https://www.youtube.com/"
+                target="_blank"
+                rel="noopener"
+              >
+                YouTube ↗
+              </a>
+
+              <a
+                class="media-link"
+                href="assets/video/official-video.mp4"
+                download
+              >
+                Download Video ↓
+              </a>
+            </div>
+
+          </article>
+
         </div>
-      </article>
+      </div>
+    </section>
 
-      <article class="media-card">
-        <video class="video-preview" controls preload="metadata">
-          <source src="assets/video/official-video.mp4" type="video/mp4">
-        </video>
-        <h3>Official Video</h3>
-        <p>Official music video</p>
-        <div class="media-actions">
-          <a class="media-link" href="https://www.youtube.com/" target="_blank" rel="noopener">
-            YouTube ↗
-          </a>
-          <a class="media-link" href="assets/video/official-video.mp4" download>
-            Download Video ↓
-          </a>
-        </div>
-      </article>
 
-    </div>
-  </div>
-</section>
+    <!-- DOWNLOADS -->
 
     <section id="downloads">
       <div class="wrap">
-        <p class="kicker">03 / Press resources</p>
+
+        <p class="kicker">05 / Press resources</p>
         <h2>Downloads</h2>
+
         <div class="downloads">
-          <a class="download" href="assets/when-stars-fade-logo.png" download>
-            <span><strong>Band logo — PNG</strong><small>High-resolution image</small></span><span class="arrow">↓</span>
+
+          <a
+            class="download"
+            href="assets/when-stars-fade-logo.png"
+            download
+          >
+            <span>
+              <strong>Band logo — PNG</strong>
+              <small>High-resolution image</small>
+            </span>
+            <span class="arrow">↓</span>
           </a>
-          <a class="download" href="assets/band-photo.jpg" download>
-            <span><strong>Band photo — JPG</strong><small>Press photograph</small></span><span class="arrow">↓</span>
+
+          <a
+            class="download"
+            href="assets/band-photo.jpg"
+            download
+          >
+            <span>
+              <strong>Band photo — JPG</strong>
+              <small>Press photograph</small>
+            </span>
+            <span class="arrow">↓</span>
           </a>
+
         </div>
-        <p class="placeholder" style="font-size:.8rem;margin-top:16px">The supplied logo is provided as a PNG. Add an SVG or print-ready PDF version here if available.</p>
+
+        <p class="placeholder download-note">
+          The supplied logo is provided as a PNG.
+          Add an SVG or print-ready PDF version here if available.
+        </p>
+
       </div>
     </section>
+
+
+    <!-- CONTACT -->
 
     <section id="contact">
       <div class="wrap">
-        <p class="kicker">04 / Get in touch</p>
+
+        <p class="kicker">06 / Get in touch</p>
         <h2>Contact & Booking</h2>
+
         <div class="contact">
-          <a class="pill" href="mailto:your-whenstarsfade@gmail.com">Booking email — replace</a>
-          <a class="pill" href="#" target="_blank" rel="noopener">Instagram — replace</a>
-          <a class="pill" href="#" target="_blank" rel="noopener">Facebook — replace</a>
+
+          <a
+            class="pill"
+            href="mailto:your-whenstarsfade@gmail.com"
+          >
+            Booking email — replace
+          </a>
+
+          <a
+            class="pill"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            Instagram — replace
+          </a>
+
+          <a
+            class="pill"
+            href="#"
+            target="_blank"
+            rel="noopener"
+          >
+            Facebook — replace
+          </a>
+
         </div>
       </div>
     </section>
+
   </main>
 
-  <footer class="wrap">WHEN STARS FADE · ELECTRONIC PRESS KIT</footer>
 
-  <div class="lightbox" id="lightbox">
-  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
-  <img id="lightboxImage" src="" alt="Enlarged band photograph">
-</div>
+  <footer class="wrap">
+    WHEN STARS FADE · ELECTRONIC PRESS KIT
+  </footer>
 
 
-  <script>
-const track = document.getElementById("galleryTrack");
-const count = document.getElementById("galleryCount");
+  <!-- LIGHTBOX -->
 
-async function loadGallery() {
-  try {
-    const response = await fetch("assets/photos/gallery.json");
+  <div
+    class="lightbox"
+    id="lightbox"
+    aria-hidden="true"
+    role="dialog"
+    aria-label="Photo viewer"
+  >
 
-    if (!response.ok) {
-      throw new Error("Gallery file not found");
-    }
+    <button
+      class="lightbox-close"
+      id="lightboxClose"
+      aria-label="Close"
+      type="button"
+    >×</button>
 
-    const photos = await response.json();
+    <img
+      id="lightboxImage"
+      src=""
+      alt="Enlarged band photograph"
+    >
 
-    if (!photos.length) {
-      track.innerHTML = '<p class="placeholder">Photos coming soon.</p>';
-      count.textContent = "0 photos";
-      return;
-    }
+  </div>
 
-    track.innerHTML = photos.map(photo => `
-      <div class="gallery-slide">
-        <img src="${photo.src}" alt="${photo.alt}" loading="lazy">
-      </div>
-    `).join("");
-
-    count.textContent = `${photos.length} photos`;
-
-  } catch (error) {
-    track.innerHTML =
-      '<p class="placeholder">Gallery is currently unavailable.</p>';
-    count.textContent = "";
-    console.error(error);
-  }
-}
-
-document.getElementById("galleryPrev").addEventListener("click", () => {
-  track.scrollBy({ left: -track.clientWidth * 0.75, behavior: "smooth" });
-});
-
-document.getElementById("galleryNext").addEventListener("click", () => {
-  track.scrollBy({ left: track.clientWidth * 0.75, behavior: "smooth" });
-});
-
-loadGallery();
-
-
-    
-/* LIGHTBOX */
-
-const lightbox = document.getElementById("lightbox");
-const lightboxImage = document.getElementById("lightboxImage");
-const lightboxClose = document.getElementById("lightboxClose");
-
-function openLightbox(src, alt) {
-  lightboxImage.src = src;
-  lightboxImage.alt = alt || "Band photograph";
-  lightbox.classList.add("active");
-  document.body.style.overflow = "hidden";
-}
-
-function closeLightbox() {
-  lightbox.classList.remove("active");
-  document.body.style.overflow = "";
-  lightboxImage.src = "";
-}
-
-// Открытие фотографии
-track.addEventListener("click", function(event) {
-  const img = event.target.closest(".gallery-slide img");
-
-  if (img) {
-    openLightbox(img.src, img.alt);
-  }
-});
-
-// Закрытие по крестику
-lightboxClose.addEventListener("click", closeLightbox);
-
-// Закрытие по клику на затемнённый фон
-lightbox.addEventListener("click", function(event) {
-  if (event.target === lightbox) {
-    closeLightbox();
-  }
-});
-
-// Закрытие клавишей Escape
-document.addEventListener("keydown", function(event) {
-  if (event.key === "Escape" && lightbox.classList.contains("active")) {
-    closeLightbox();
-  }
-});
-
-
-
-
-    
-</script>
-</body>
-</html>
-
-  
 </body>
 </html>
