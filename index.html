@@ -212,6 +212,85 @@
       .photo-frame { margin-right:12px; }
     }
   </style>
+
+
+  /* LIGHTBOX */
+
+.gallery-slide img {
+  cursor: zoom-in;
+}
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, .94);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .25s ease, visibility .25s ease;
+  cursor: zoom-out;
+}
+
+.lightbox.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox img {
+  display: block;
+  max-width: 95vw;
+  max-height: 90vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  cursor: default;
+  box-shadow: 0 10px 60px rgba(0,0,0,.5);
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 28px;
+  width: 46px;
+  height: 46px;
+  border: 1px solid #666;
+  background: rgba(20,20,20,.7);
+  color: white;
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-close:hover {
+  background: #333;
+}
+
+@media (max-width:720px) {
+  .lightbox {
+    padding: 15px;
+  }
+
+  .lightbox img {
+    max-width: 96vw;
+    max-height: 85vh;
+  }
+
+  .lightbox-close {
+    top: 12px;
+    right: 12px;
+  }
+}
+
+
+
+  
 </head>
 <body>
   <header class="wrap">
@@ -381,6 +460,11 @@
 
   <footer class="wrap">WHEN STARS FADE · ELECTRONIC PRESS KIT</footer>
 
+  <div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+  <img id="lightboxImage" src="" alt="Enlarged band photograph">
+</div>
+
 
   <script>
 const track = document.getElementById("galleryTrack");
@@ -427,6 +511,58 @@ document.getElementById("galleryNext").addEventListener("click", () => {
 });
 
 loadGallery();
+
+
+    
+/* LIGHTBOX */
+
+const lightbox = document.getElementById("lightbox");
+const lightboxImage = document.getElementById("lightboxImage");
+const lightboxClose = document.getElementById("lightboxClose");
+
+function openLightbox(src, alt) {
+  lightboxImage.src = src;
+  lightboxImage.alt = alt || "Band photograph";
+  lightbox.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeLightbox() {
+  lightbox.classList.remove("active");
+  document.body.style.overflow = "";
+  lightboxImage.src = "";
+}
+
+// Открытие фотографии
+track.addEventListener("click", function(event) {
+  const img = event.target.closest(".gallery-slide img");
+
+  if (img) {
+    openLightbox(img.src, img.alt);
+  }
+});
+
+// Закрытие по крестику
+lightboxClose.addEventListener("click", closeLightbox);
+
+// Закрытие по клику на затемнённый фон
+lightbox.addEventListener("click", function(event) {
+  if (event.target === lightbox) {
+    closeLightbox();
+  }
+});
+
+// Закрытие клавишей Escape
+document.addEventListener("keydown", function(event) {
+  if (event.key === "Escape" && lightbox.classList.contains("active")) {
+    closeLightbox();
+  }
+});
+
+
+
+
+    
 </script>
 </body>
 </html>
