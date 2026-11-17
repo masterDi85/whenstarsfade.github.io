@@ -11,12 +11,17 @@ fs.mkdirSync(photosDir, { recursive: true });
 
 const photos = fs.readdirSync(photosDir)
   .filter(file => extensions.includes(path.extname(file).toLowerCase()))
-  .sort()
+  .sort((a, b) => a.localeCompare(b))
   .map(file => ({
     src: `assets/photos/${file}`,
-    alt: file.replace(/\.[^.]+$/, "").replace(/[-_]/g, " ")
+    alt: file
+      .replace(/\.[^.]+$/, "")
+      .replace(/[-_]/g, " ")
   }));
 
-fs.writeFileSync(outputFile, JSON.stringify(photos, null, 2));
+fs.writeFileSync(
+  outputFile,
+  JSON.stringify(photos, null, 2)
+);
 
 console.log(`Gallery generated: ${photos.length} photos`);
