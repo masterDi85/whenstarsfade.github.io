@@ -10,7 +10,9 @@ const extensions = [".jpg", ".jpeg", ".png", ".webp"];
 fs.mkdirSync(photosDir, { recursive: true });
 
 const photos = fs.readdirSync(photosDir)
-  .filter(file => extensions.includes(path.extname(file).toLowerCase()))
+  .filter(file =>
+    extensions.includes(path.extname(file).toLowerCase())
+  )
   .sort((a, b) => a.localeCompare(b))
   .map(file => ({
     src: `assets/photos/${file}`,
